@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["loranallensmith@github.com"]
   spec.summary       = "A tool for demonstrating Git scenarios"
   spec.description   = "This gem is a wrapper for Scott Chacon's ruby-git gem with commands that streamline the process of creating repositories in a given state.  Its primary purpose is for demonstrating common Git scenarios, but it is handy for scripting basic repository operations."
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/loranallensmith/gitmethere"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -21,6 +21,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake", "~> 10.0"
 
-  spec.add_runtime_dependency "git"
+  spec.add_runtime_dependency "git", "~> 1.2"
 
 end
