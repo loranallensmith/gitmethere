@@ -26,7 +26,7 @@ setup = {
     This repository demonstrates how merge conflicts occur."
 }
 
-scenario = GitMeThere::Scenario.new(setup['name'], explanation=setup['explanation'])
+scenario = GitMeThere::Scenario.new(name = setup['name'], explanation = setup['explanation'])
 
 scenario.checkout_branch('feature')
 
@@ -60,6 +60,8 @@ scenario.commit('Add line to master branch')
 
 1. Fork it ( https://github.com/loranallensmith/gitmethere/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+3. Write tests for your changes
+4. Commit your changes (`git commit -am 'Add some feature'`)
+5. Push to the branch (`git push origin my-new-feature`)
+6. Make sure all tests are passing
+7. Create a new Pull Request
