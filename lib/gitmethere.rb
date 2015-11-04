@@ -38,11 +38,13 @@ module GitMeThere
 
     def create_file(name="my-file.md", content="")
       File.open("#{@name}/#{name}", 'w') do | f |
-        f.puts content
+        unless content.empty?
+          f.puts content
+        end
       end
     end
 
-    def append_to_file(name="myfile.md", content="Adding a bit more content")
+    def append_to_file(name="my-file.md", content="Adding a bit more content")
       File.open("#{@name}/#{name}", 'a') do | f |
         f.puts content
       end
