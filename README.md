@@ -26,7 +26,7 @@ setup = {
     This repository demonstrates how merge conflicts occur."
 }
 
-scenario = GitMeThere::Scenario.new(name = setup['name'], explanation = setup['explanation'])
+scenario = GitMeThere::Scenario.new(name = setup[:name], explanation = setup[:explanation])
 
 scenario.checkout_branch('feature')
 
