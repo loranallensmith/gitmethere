@@ -6,7 +6,7 @@ module GitMeThere
 
   class Scenario
 
-    # All scenarios are automatically generated as a fresh repositorywith a README.md file
+    # All scenarios are automatically generated as a fresh repository with a README.md file
     # and an initial commit on the master branch.
     #
     # If an explanation is specified, it will be included as README.md text in the first commit.
@@ -19,6 +19,10 @@ module GitMeThere
     #   name: (String)
     #   explanation: (String)
     #
+
+    # Give direct access to the Git::Base object in a scenario
+    attr_accessor :g
+
     def initialize(name="my-scenario", explanation="")
       @name = name
       @g = Git.init(name)

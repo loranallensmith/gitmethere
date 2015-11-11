@@ -54,6 +54,18 @@ RSpec.describe GitMeThere::Scenario do
 
   end
 
+  describe ".g" do
+
+    before(:each) do
+      @scenario = GitMeThere::Scenario.new()
+    end
+
+    it 'should return Git::Base object' do
+      expect(@scenario.g.class).to eq(Git::Base)
+    end
+
+  end
+
   describe ".create_file()" do
 
     before(:each) do
