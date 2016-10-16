@@ -27,6 +27,7 @@ setup = {
 }
 
 scenario = GitMeThere::Scenario.new(name = setup[:name], explanation = setup[:explanation])
+other_author = GitMeThere::Author.new("Other Developer", "test@example.com")
 
 scenario.checkout_branch('feature')
 
@@ -38,7 +39,7 @@ scenario.append_to_file(
 
 scenario.stage_changes
 
-scenario.commit('Add line to feature branch.')
+scenario.commit('Add line to feature branch.', author=other_author)
 
 scenario.checkout_branch('master')
 
