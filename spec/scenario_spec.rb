@@ -161,6 +161,19 @@ RSpec.describe GitMeThere::Scenario do
       @scenario.commit("Testing the commit function")
       expect(@scenario.instance_variable_get(:@g).log.first.message).to eq("Testing the commit function")
     end
+
+    it "with message and author" do
+      author = GitMeThere::Author.new("Test User", "test@example.com")
+      @scenario.create_file(
+        name = "test-commit-file",
+        content = "commit this file."
+      )
+      @scenario.stage_changes
+      @scenario.commit("Testing the commit function with a different user", author)
+      expect(@scenario.instance_variable_get(:@g).log.first.message).to eq("Testing the commit function with a different user")
+      expect(@scenario.instance_variable_get(:@g).log.first.author.name).to eq(author.name)
+      expect(@scenario.instance_variable_get(:@g).log.first.author.email).to eq(author.email)
+    end
   end
 
   after(:each) do

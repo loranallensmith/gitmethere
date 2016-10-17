@@ -1,4 +1,5 @@
 require "gitmethere/version"
+require "gitmethere/author"
 
 require 'git'
 
@@ -54,8 +55,12 @@ module GitMeThere
       end
     end
 
-    def commit(message)
-      @g.commit(message)
+    def commit(message, author = nil)
+      if author.nil?
+        @g.commit(message)
+      else
+        @g.commit(message, author: author.git_author)
+      end
     end
 
   end
