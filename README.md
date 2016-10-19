@@ -31,6 +31,8 @@ other_author = GitMeThere::Author.new("Other Developer", "test@example.com")
 
 scenario.checkout_branch('feature')
 
+scenario.pause("Pausing between steps for an explanation...")
+
 scenario.append_to_file(
   file="README.md",
   content="A feature branch was created off of the `Initial commit`.
