@@ -2,6 +2,7 @@ require "gitmethere/version"
 require "gitmethere/author"
 
 require 'git'
+require 'io/console'
 
 module GitMeThere
 
@@ -61,6 +62,19 @@ module GitMeThere
       else
         @g.commit(message, author: author.git_author)
       end
+    end
+
+    def pause(message = nil)
+      STDIN.echo = false
+      if message
+        puts message
+      end
+      puts "Press any key to continue..."
+      input = STDIN.getch
+
+    ensure
+      STDIN.ioflush
+      STDIN.echo = true
     end
 
   end
