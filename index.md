@@ -1,6 +1,6 @@
 # GitMeThere
 
-This gem is a wrapper for Scott Chacon's [ruby-git](https://github.com/schacon/ruby-git) gem with commands that streamline the process of creating repositories in a given state.  Its primary purpose is for demonstrating common Git scenarios, but it is handy for scripting basic repository operations.
+This gem is a wrapper for [`schacon/ruby-git`](https://github.com/schacon/ruby-git) with commands that streamline the process of creating repositories in a given state.  Its primary purpose is for demonstrating common Git scenarios, but it is handy for scripting basic repository operations.
 
 ## Installation
 
