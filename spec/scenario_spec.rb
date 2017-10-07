@@ -122,6 +122,26 @@ RSpec.describe GitMeThere::Scenario do
 
   end
 
+  describe ".delete_file()" do
+
+    before(:each) do
+      @scenario = GitMeThere::Scenario.new()
+    end
+
+    it "without arguments" do
+      @scenario.create_file()
+      @scenario.delete_file()
+      expect(File.file?("my-scenario/my-file.md")).to be false
+    end
+
+    it "with arguments" do
+      @scenario.create_file(name="file-name")
+      @scenario.delete_file(name="file-name")
+      expect(File.file?("my-scenario/file-name")).to be false
+    end
+
+  end
+
   describe '.checkout_branch()' do
     before(:each) do
       @scenario = GitMeThere::Scenario.new(

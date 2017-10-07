@@ -60,6 +60,10 @@ module GitMeThere
       File.rename("#{@name}/#{source}", "#{@name}/#{target}")
     end
 
+    def delete_file(name="my-file.md")
+      File.delete("#{@name}/#{name}")
+    end
+
     def commit(message, author = nil)
       if author.nil?
         @g.commit(message)
