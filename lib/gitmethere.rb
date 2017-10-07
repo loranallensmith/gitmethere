@@ -56,6 +56,10 @@ module GitMeThere
       end
     end
 
+    def rename_file(source="my-file.md", target="my-new-file.md")
+      File.rename("#{@name}/#{source}", "#{@name}/#{target}")
+    end
+
     def commit(message, author = nil)
       if author.nil?
         @g.commit(message)

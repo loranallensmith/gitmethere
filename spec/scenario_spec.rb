@@ -103,6 +103,25 @@ RSpec.describe GitMeThere::Scenario do
 
   end
 
+  describe ".rename_file()" do
+
+    before(:each) do
+      @scenario = GitMeThere::Scenario.new()
+      @scenario.create_file(name="my-file.md", content="content")
+    end
+
+    it "without arguments" do
+      @scenario.rename_file()
+      expect(File.read("my-scenario/my-new-file.md")).to include("content")
+    end
+
+    it "with arguments" do
+      @scenario.rename_file(source="my-file.md", target="renamed-file.md")
+      expect(File.read("my-scenario/renamed-file.md")).to include("content")
+    end
+
+  end
+
   describe '.checkout_branch()' do
     before(:each) do
       @scenario = GitMeThere::Scenario.new(
