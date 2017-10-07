@@ -103,6 +103,26 @@ RSpec.describe GitMeThere::Scenario do
 
   end
 
+  describe ".replace_in_file()" do
+
+    before(:each) do
+      @scenario = GitMeThere::Scenario.new()
+      @scenario.create_file()
+      @scenario.append_to_file()
+    end
+
+    it "without arguments" do
+      @scenario.replace_in_file()
+      expect(File.read("my-scenario/my-file.md")).to include("Replaced content")
+    end
+
+    it "with arguments" do
+      @scenario.replace_in_file(name="my-file.md", content=/.*/, new_content="custom content")
+      expect(File.read("my-scenario/my-file.md")).to include("custom content")
+    end
+
+  end
+
   describe ".rename_file()" do
 
     before(:each) do

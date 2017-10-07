@@ -56,6 +56,13 @@ module GitMeThere
       end
     end
 
+    def replace_in_file(name="my-file.md", content="Adding a bit more content", new_content="Replaced content")
+      text = File.read("#{@name}/#{name}")
+      File.open("#{@name}/#{name}", 'w') do | f |
+        f.puts text.gsub(content, new_content)
+      end
+    end
+
     def rename_file(source="my-file.md", target="my-new-file.md")
       File.rename("#{@name}/#{source}", "#{@name}/#{target}")
     end
