@@ -54,14 +54,14 @@ RSpec.describe GitMeThere::Scenario do
 
   end
 
-  describe ".g" do
+  describe ".git" do
 
     before(:each) do
       @scenario = GitMeThere::Scenario.new()
     end
 
     it 'should return Git::Base object' do
-      expect(@scenario.g.class).to eq(Git::Base)
+      expect(@scenario.git.class).to eq(Git::Base)
     end
 
   end
@@ -172,13 +172,13 @@ RSpec.describe GitMeThere::Scenario do
 
     it "with new branch" do
       @scenario.checkout_branch("feature")
-      expect(@scenario.instance_variable_get(:@g).current_branch).to eq("feature")
+      expect(@scenario.instance_variable_get(:@git).current_branch).to eq("feature")
     end
 
     it "with existing branch" do
-      @scenario.instance_variable_get(:@g).branch("test-branch")
+      @scenario.instance_variable_get(:@git).branch("test-branch")
       @scenario.checkout_branch("test-branch")
-      expect(@scenario.instance_variable_get(:@g).current_branch).to eq("test-branch")
+      expect(@scenario.instance_variable_get(:@git).current_branch).to eq("test-branch")
     end
 
   end
@@ -198,7 +198,7 @@ RSpec.describe GitMeThere::Scenario do
         content = "Stage this file."
       )
       @scenario.stage_changes
-      expect(@scenario.instance_variable_get(:@g).status.added.keys).to include("test-staging-files.md")
+      expect(@scenario.instance_variable_get(:@git).status.added.keys).to include("test-staging-files.md")
     end
 
   end
@@ -218,7 +218,7 @@ RSpec.describe GitMeThere::Scenario do
       )
       @scenario.stage_changes
       @scenario.commit("Testing the commit function")
-      expect(@scenario.instance_variable_get(:@g).log.first.message).to eq("Testing the commit function")
+      expect(@scenario.instance_variable_get(:@git).log.first.message).to eq("Testing the commit function")
     end
 
     it "with message and author" do
@@ -229,9 +229,9 @@ RSpec.describe GitMeThere::Scenario do
       )
       @scenario.stage_changes
       @scenario.commit("Testing the commit function with a different user", author)
-      expect(@scenario.instance_variable_get(:@g).log.first.message).to eq("Testing the commit function with a different user")
-      expect(@scenario.instance_variable_get(:@g).log.first.author.name).to eq(author.name)
-      expect(@scenario.instance_variable_get(:@g).log.first.author.email).to eq(author.email)
+      expect(@scenario.instance_variable_get(:@git).log.first.message).to eq("Testing the commit function with a different user")
+      expect(@scenario.instance_variable_get(:@git).log.first.author.name).to eq(author.name)
+      expect(@scenario.instance_variable_get(:@git).log.first.author.email).to eq(author.email)
     end
   end
 

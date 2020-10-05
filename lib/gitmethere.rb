@@ -23,23 +23,23 @@ module GitMeThere
     #
 
     # Give direct access to the Git::Base object in a scenario
-    attr_accessor :g
+    attr_accessor :git
 
     def initialize(name="my-scenario", explanation="")
       @name = name
-      @g = Git.init(name)
+      @git = Git.init(name)
 
       self.create_file(name='README.md', content=explanation)
-      @g.add
-      @g.commit("Initial commit")
+      @git.add
+      @git.commit("Initial commit")
     end
 
     def checkout_branch(branch)
-      @g.branch(branch).checkout
+      @git.branch(branch).checkout
     end
 
     def stage_changes
-      @g.add
+      @git.add
     end
 
     def create_file(name="my-file.md", content="")
@@ -73,9 +73,9 @@ module GitMeThere
 
     def commit(message, author = nil)
       if author.nil?
-        @g.commit(message)
+        @git.commit(message)
       else
-        @g.commit(message, author: author.git_author)
+        @git.commit(message, author: author.git_author)
       end
     end
 
