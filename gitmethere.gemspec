@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "gitmethere"
   spec.version       = Gitmethere::VERSION
   spec.authors       = ["Allen Smith"]
-  spec.email         = ["loranallensmith@github.com"]
+  spec.email         = ["loranallensmith@gmail.com"]
   spec.summary       = "A tool for demonstrating Git scenarios"
   spec.description   = "This gem is a wrapper for Scott Chacon's ruby-git gem with commands that streamline the process of creating repositories in a given state.  Its primary purpose is for demonstrating common Git scenarios, but it is handy for scripting basic repository operations."
   spec.homepage      = "https://github.com/loranallensmith/gitmethere"
